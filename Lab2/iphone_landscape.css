@@ -1,0 +1,49 @@
+header {
+  font-family: Futura;
+  font-weight: bold condensed;
+  color: #ffffff;
+  font-size: 25px;
+}
+body {
+    background-color: #57068c;
+    color: #ffffff;
+}
+h1 {
+	color: #ffffff;
+	font-size: 20px;
+}
+#content {
+    padding:3px;
+}
+#Drexel{
+    /*center the image*/
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;}
+#main_nav ul {
+     list-style: none;
+     padding: 0;
+     margin: 10px;
+     font-weight: bold;
+}
+#main_nav ul li {
+	 background-color: #fff;
+     border: 1px solid #999;
+     color: #222;
+     display: block;
+     margin-bottom: -1px;
+     padding: 12px 10px;
+}
+#main_nav ul li a{
+     text-decoration: none;
+}
+/* add traditional rounded corners to the navigation menu*/
+#main_nav li:first-child{
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+}
+#main_nav li:last-child{
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+}
