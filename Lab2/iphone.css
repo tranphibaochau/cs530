@@ -74,3 +74,13 @@ header.secondary{
   padding-left: 75px;
 }
 
+button {
+  /*center the button*/
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* add your code to set top and bottom margins */
+  /*add an image to your button*/
+  -webkit-border-image: url("orangeButton.png") 0 14 0 14 stretch;
+  /*set width and height for the button*/ 
+}
