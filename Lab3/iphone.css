@@ -84,3 +84,13 @@ button {
   -webkit-border-image: url("orangeButton.png") 0 14 0 14 stretch;
   /*set width and height for the button*/ 
 }
+button.location {
+display: inline;
+-webkit-border-image: url("blueButton.png") 0 14 0 14 stretch; width:120px;
+height: 30px;
+}
+#geolocate{
+  display: inline;
+  height: 30px;
+  left: 20px;
+}
