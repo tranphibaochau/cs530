@@ -1,0 +1,103 @@
+   1              		.file	"loop.c"
+   2              	# GNU C11 (Ubuntu 5.4.0-6ubuntu1~16.04.9) version 5.4.0 20160609 (x86_64-linux-gnu)
+   3              	#	compiled by GNU C version 5.4.0 20160609, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.
+   4              	# GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+   5              	# options passed:  -imultilib 32 -imultiarch i386-linux-gnu loop.c -m32
+   6              	# -mtune=generic -march=i686 -g -O0 -fverbose-asm -fstack-protector-strong
+   7              	# -Wformat -Wformat-security
+   8              	# options enabled:  -faggressive-loop-optimizations
+   9              	# -fasynchronous-unwind-tables -fauto-inc-dec -fchkp-check-incomplete-type
+  10              	# -fchkp-check-read -fchkp-check-write -fchkp-instrument-calls
+  11              	# -fchkp-narrow-bounds -fchkp-optimize -fchkp-store-bounds
+  12              	# -fchkp-use-static-bounds -fchkp-use-static-const-bounds
+  13              	# -fchkp-use-wrappers -fcommon -fdelete-null-pointer-checks
+  14              	# -fdwarf2-cfi-asm -fearly-inlining -feliminate-unused-debug-types
+  15              	# -ffunction-cse -fgcse-lm -fgnu-runtime -fgnu-unique -fident
+  16              	# -finline-atomics -fira-hoist-pressure -fira-share-save-slots
+  17              	# -fira-share-spill-slots -fivopts -fkeep-static-consts
+  18              	# -fleading-underscore -flifetime-dse -flto-odr-type-merging -fmath-errno
+  19              	# -fmerge-debug-strings -fpcc-struct-return -fpeephole
+  20              	# -fprefetch-loop-arrays -fsched-critical-path-heuristic
+  21              	# -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-interblock
+  22              	# -fsched-last-insn-heuristic -fsched-rank-heuristic -fsched-spec
+  23              	# -fsched-spec-insn-heuristic -fsched-stalled-insns-dep -fschedule-fusion
+  24              	# -fsemantic-interposition -fshow-column -fsigned-zeros
+  25              	# -fsplit-ivs-in-unroller -fstack-protector-strong -fstdarg-opt
+  26              	# -fstrict-volatile-bitfields -fsync-libcalls -ftrapping-math
+  27              	# -ftree-coalesce-vars -ftree-cselim -ftree-forwprop -ftree-loop-if-convert
+  28              	# -ftree-loop-im -ftree-loop-ivcanon -ftree-loop-optimize
+  29              	# -ftree-parallelize-loops= -ftree-phiprop -ftree-reassoc -ftree-scev-cprop
+  30              	# -funit-at-a-time -funwind-tables -fverbose-asm -fzero-initialized-in-bss
+  31              	# -m32 -m80387 -m96bit-long-double -malign-stringops
+  32              	# -mavx256-split-unaligned-load -mavx256-split-unaligned-store
+  33              	# -mfancy-math-387 -mfp-ret-in-387 -mglibc -mieee-fp -mlong-double-80
+  34              	# -mno-red-zone -mno-sse4 -mpush-args -msahf -mtls-direct-seg-refs
+  35              	# -mvzeroupper
+  36              	
+  37              		.text
+  38              	.Ltext0:
+  39              		.globl	loop
+  41              	loop:
+  42              	.LFB0:
+  43              		.file 1 "loop.c"
+   1:loop.c        **** void loop(double c[], double a[], double b[], int n)
+   2:loop.c        **** {
+  44              		.loc 1 2 0
+  45              		.cfi_startproc
+  46 0000 55       		pushl	%ebp	#
+  47              		.cfi_def_cfa_offset 8
+  48              		.cfi_offset 5, -8
+  49 0001 89E5     		movl	%esp, %ebp	#,
+  50              		.cfi_def_cfa_register 5
+  51 0003 53       		pushl	%ebx	#
+  52              		.cfi_offset 3, -12
+   3:loop.c        ****      register int i asm("%eax");
+   4:loop.c        **** 
+   5:loop.c        ****      for (i=0;i<n;i++)
+  53              		.loc 1 5 0
+  54 0004 B8000000 		movl	$0, %eax	#, i
+  54      00
+  55 0009 EB35     		jmp	.L2	#
+  56              	.L3:
+   6:loop.c        ****        c[i] = a[i] + b[i];
+  57              		.loc 1 6 0 discriminator 3
+  58 000b 89C2     		movl	%eax, %edx	# i, D.1508
+  59 000d 8D0CD500 		leal	0(,%edx,8), %ecx	#, D.1509
+  59      000000
+  60 0014 8B5508   		movl	8(%ebp), %edx	# c, tmp105
+  61 0017 01CA     		addl	%ecx, %edx	# D.1509, D.1510
+  62 0019 89C1     		movl	%eax, %ecx	# i, D.1508
+  63 001b 8D1CCD00 		leal	0(,%ecx,8), %ebx	#, D.1509
+  63      000000
+  64 0022 8B4D0C   		movl	12(%ebp), %ecx	# a, tmp106
+  65 0025 01D9     		addl	%ebx, %ecx	# D.1509, D.1510
+  66 0027 DD01     		fldl	(%ecx)	# *_15
+  67 0029 89C1     		movl	%eax, %ecx	# i, D.1508
+  68 002b 8D1CCD00 		leal	0(,%ecx,8), %ebx	#, D.1509
+  68      000000
+  69 0032 8B4D10   		movl	16(%ebp), %ecx	# b, tmp107
+  70 0035 01D9     		addl	%ebx, %ecx	# D.1509, D.1510
+  71 0037 DD01     		fldl	(%ecx)	# *_21
+  72 0039 DEC1     		faddp	%st, %st(1)	#,
+  73 003b DD1A     		fstpl	(%edx)	# *_10
+   5:loop.c        ****        c[i] = a[i] + b[i];
+  74              		.loc 1 5 0 discriminator 3
+  75 003d 83C001   		addl	$1, %eax	#, D.1508
+  76              	.L2:
+   5:loop.c        ****        c[i] = a[i] + b[i];
+  77              		.loc 1 5 0 is_stmt 0 discriminator 1
+  78 0040 89C2     		movl	%eax, %edx	# i, D.1508
+  79 0042 3B5514   		cmpl	20(%ebp), %edx	# n, D.1508
+  80 0045 7CC4     		jl	.L3	#,
+   7:loop.c        **** }
+  81              		.loc 1 7 0 is_stmt 1
+  82 0047 90       		nop
+  83 0048 5B       		popl	%ebx	#
+  84              		.cfi_restore 3
+  85 0049 5D       		popl	%ebp	#
+  86              		.cfi_restore 5
+  87              		.cfi_def_cfa 4, 4
+  88 004a C3       		ret
+  89              		.cfi_endproc
+  90              	.LFE0:
+  92              	.Letext0:
